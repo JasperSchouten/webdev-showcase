@@ -13,6 +13,9 @@ body {
 }
 
 .win95-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     border: 2px solid black;
     background: #c0c0c0;
     color: black;

@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export function Taskbar() {
     const pathname = usePathname();
@@ -17,15 +18,14 @@ export function Taskbar() {
                     href="/"
                     className="win95-button font-bold"
                 >
-                    Start
-                </Link>
+                    <Image
+                        src="/Home.png"
+                        alt="Home icon"
+                        width={16}
+                        height={16}
+                    />
 
-                <Link
-                    href="/"
-                    className={`win95-button ${pathname === '/' ? 'shadow-win95-inset' : ''
-                        }`}
-                >
-                    home.exe
+                    <span>Start</span>
                 </Link>
 
                 <Link
