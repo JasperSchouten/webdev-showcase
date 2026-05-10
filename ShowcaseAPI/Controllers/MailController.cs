@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using System.Net.Mail;
+using Microsoft.AspNetCore.Mvc;
 using ShowcaseAPI.Models;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ShowcaseAPI.Controllers
 {
@@ -9,13 +9,44 @@ namespace ShowcaseAPI.Controllers
     [ApiController]
     public class MailController : ControllerBase
     {
-        // POST api/<MailController>
+        private readonly IConfiguration _configuration;
+
+        public MailController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         [HttpPost]
         public ActionResult Post([Bind("FirstName, LastName, Email, Phone")] Contactform form)
         {
-            //Op brightspace staan instructies over hoe je de mailfunctionaliteit werkend kunt maken:
-            //Project Web Development > De showcase > Week 2: contactpagina (UC2) > Hoe verstuur je een mail vanuit je webapplicatie met Mailtrap?
-            
+            var host = _configuration["Mailtrap:Host"];
+            var port = int.Parse(_configuration["Mailtrap:Port"]!);
+            var user = _configuration["Mailtrap:User"];
+            var password = _configuration["Mailtrap:Password"];
+            var from = _configuration["Mailtrap:From"];
+            var to = _configuration["Mailtrap:To"];
+
+            var subject = "Contactverzoek";
+
+            var body = $@"
+Een bezoeker met de volgende gegevens heeft een contactverzoek gedaan:
+
+Voornaam: {form.FirstName}
+Achternaam: {form.LastName}
+Email: {form.Email}
+Telefoonnummer: {form.Phone}
+";
+
+            using var client = new SmtpClient(host, port)
+            {
+                Credentials = new NetworkCredential(user, password),
+                EnableSsl = true
+            };
+
+            client.Send(from, to, subject, body);
+
+            Console.WriteLine("Sent");
+
             return Ok();
         }
     }
