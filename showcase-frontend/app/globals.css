@@ -35,3 +35,8 @@ body {
     outline: none;
     box-shadow: inset 2px 2px 0 #808080, inset -2px -2px 0 #ffffff;
 }
+
+.win95-icon {
+    width: 25px;
+    height: 25px;
+}

@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { Win95Icon } from '@/components/Win95Icon';
 
 export function Taskbar() {
     const pathname = usePathname();
@@ -18,13 +19,10 @@ export function Taskbar() {
                     href="/"
                     className="win95-button font-bold"
                 >
-                    <Image
+                    <Win95Icon
                         src="/Home.png"
                         alt="Home icon"
-                        width={16}
-                        height={16}
                     />
-
                     <span>Start</span>
                 </Link>
 
@@ -35,7 +33,25 @@ export function Taskbar() {
                             : ''
                         }`}
                 >
-                    contact.exe
+                    <Win95Icon
+                        src="/Phone.png"
+                        alt="phone icon"
+                    />
+                    <span>contact.exe</span>
+                </Link>
+
+                <Link
+                    href="/login"
+                    className={`win95-button ${pathname === '/contact'
+                        ? 'shadow-win95-inset'
+                        : ''
+                        }`}
+                >
+                    <Win95Icon
+                        src="/Key.png"
+                        alt="Key icon"
+                    />
+                    <span>login.exe</span>
                 </Link>
             </div>
         </nav>
