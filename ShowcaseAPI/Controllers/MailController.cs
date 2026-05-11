@@ -17,7 +17,7 @@ namespace ShowcaseAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([Bind("FirstName, LastName, Email, Phone")] Contactform form)
+        public ActionResult Post([Bind("FirstName, LastName, Email, Phone")] ContactFormDto form)
         {
             var host = _configuration["Mailtrap:Host"];
             var port = int.Parse(_configuration["Mailtrap:Port"]!);

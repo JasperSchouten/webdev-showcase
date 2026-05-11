@@ -2,7 +2,7 @@
 
 namespace ShowcaseAPI.Models
 {
-    public class Contactform
+    public class ContactFormDto
     {
         [Required]
         [StringLength(60)]
