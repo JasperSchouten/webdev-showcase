@@ -397,3 +397,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /ShowcaseAPI/showcase.db
+/ShowcaseAPI/showcase.db-shm
+/ShowcaseAPI/showcase.db-wal
