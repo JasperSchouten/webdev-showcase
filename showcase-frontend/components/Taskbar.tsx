@@ -12,9 +12,9 @@ export function Taskbar() {
     return (
         <nav
             aria-label="Main navigation"
-            className="fixed bottom-0 left-0 right-0 z-50 border-t-2 border-black bg-[#c0c0c0] p-2"
+            className="fixed bottom-0 left-0 right-0 z-50 border-t-2 border-black bg-[#c0c0c0] p-1 sm:p-2"
         >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
                 <Link
                     href="/"
                     className="win95-button font-bold"
@@ -22,8 +22,9 @@ export function Taskbar() {
                     <Win95Icon
                         src="/Home.png"
                         alt="Home icon"
+                        size={16}
                     />
-                    <span>Start</span>
+                    <span className="hidden sm:inline">Start</span>
                 </Link>
 
                 <Link
@@ -36,8 +37,9 @@ export function Taskbar() {
                     <Win95Icon
                         src="/Phone.png"
                         alt="phone icon"
+                        size={16}
                     />
-                    <span>contact.exe</span>
+                    <span className="hidden sm:inline">contact.exe</span>
                 </Link>
 
                 <Link
@@ -50,8 +52,9 @@ export function Taskbar() {
                     <Win95Icon
                         src="/Key.png"
                         alt="Key icon"
+                        size={16}
                     />
-                    <span>login.exe</span>
+                    <span className="hidden sm:inline">login.exe</span>
                 </Link>
             </div>
         </nav>
