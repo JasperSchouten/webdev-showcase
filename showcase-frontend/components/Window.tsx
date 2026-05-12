@@ -4,11 +4,12 @@ import { ReactNode } from 'react';
 type WindowProps = {
     title: string;
     children: ReactNode;
+    className?: string;
 };
 
-export function Window({ title, children }: WindowProps) {
+export function Window({ title, children, className}: WindowProps) {
     return (
-        <section className="border-2 border-black bg-[#c0c0c0] shadow-win95">
+        <section className={`border-2 border-black bg-[#c0c0c0] shadow-win95 ${className}`} >
             <header className="flex items-center justify-between bg-[#000080] px-2 py-1 text-white">
                 <span className="font-bold">{title}</span>
 
@@ -20,7 +21,7 @@ export function Window({ title, children }: WindowProps) {
                 </button>
             </header>
 
-            <div className="p-4">{children}</div>
+            <div className="flex flex-col gap-2 p-4">{children}</div>
         </section>
     );
 }

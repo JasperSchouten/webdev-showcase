@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Window } from '@/components/Window';
 
 export default function LoginPage() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const message = searchParams.get("message");
 
     const [form, setForm] = useState({
         userName: '',
@@ -62,6 +64,12 @@ export default function LoginPage() {
                     <h1 className="mb-6 text-2xl font-bold">
                         Login
                     </h1>
+
+                    {message && (
+                        <div className="mb-4 border-2 border-black bg-yellow-100 p-2">
+                            {message}
+                        </div>
+                    )}
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
