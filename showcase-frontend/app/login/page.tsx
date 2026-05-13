@@ -63,7 +63,9 @@ export default function LoginPage() {
         <main className="min-h-screen bg-[#008080] p-4 pb-24">
             <div className="mx-auto max-w-md">
                 <Window title="login.exe">
-                    <h1 className="mb-6 text-2xl font-bold">
+                    <h1 className="mb-6 text-2xl font-bold"
+                    data-testid="login-header"
+                    >
                         Login
                     </h1>
 
@@ -81,6 +83,7 @@ export default function LoginPage() {
 
                             <input
                                 name="userName"
+                                data-testid="username-input"
                                 value={form.userName}
                                 onChange={handleChange}
                                 className="win95-input"
@@ -96,6 +99,7 @@ export default function LoginPage() {
                             <input
                                 type="password"
                                 name="password"
+                                data-testid="password-input"
                                 value={form.password}
                                 onChange={handleChange}
                                 className="win95-input"
@@ -103,7 +107,7 @@ export default function LoginPage() {
                             />
                         </div>
 
-                        <button type="submit" className="win95-button">
+                        <button type="submit" className="win95-button" data-testid="login-button">
                             Login
                         </button>
                     </form>
