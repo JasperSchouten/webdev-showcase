@@ -48,6 +48,7 @@ export function GdprConsent() {
             <button
                 onClick={acceptConsent}
                 className="win95-button"
+                data-testid="cookie-accept"
             >
                 Accept
             </button>

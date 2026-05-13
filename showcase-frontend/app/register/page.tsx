@@ -59,7 +59,9 @@ export default function RegisterPage() {
         <main className="min-h-screen bg-[#008080] p-4 pb-24">
             <div className="mx-auto max-w-md">
                 <Window title="register.exe">
-                    <h1 className="mb-6 text-2xl font-bold">
+                    <h1 className="mb-6 text-2xl font-bold"
+                        data-testid="register-header"
+                    >
                         Create Account
                     </h1>
 
