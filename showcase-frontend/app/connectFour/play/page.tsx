@@ -1,4 +1,6 @@
-﻿'use client';
+﻿// app/connectFour/play/page.tsx
+
+'use client';
 
 import { useEffect, useState } from 'react';
 import { Window } from '@/components/Window';
